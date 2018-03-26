@@ -31,8 +31,7 @@
   If none are included or if they all fail an exception is thrown
 
 """
-import time as pythontime
-import servicelogger
+
 
 # dictionary for time implementers to store their information
 # the settime method is passed in for use by implementers
@@ -91,9 +90,6 @@ def time_updatetime(localport):
   # try the 'update' function for each implementation, storing exceptions in
   # case of total failure, and exiting the function when any of the 'update'
   # functions succeed.
-  servicelogger.log('bryan skipped time_updatetime')
-  time.time_settime(pythontime.time() + 2208988800)
-  return
   for implementation_name, update_function in TIME_IMP_DICT.items():
     try:
       update_function(localport)
@@ -131,9 +127,7 @@ def time_settime(currenttime):
    <Returns>
     None.
   """
-  servicelogger.log('bryan skipped time_settime')
-  time.time_settime(pythontime.time() + 2208988800)
-  return
+
   time_query_times.append((getruntime(), currenttime))
 
 
@@ -161,8 +155,7 @@ def time_gettime():
    <Returns>
     Current time in seconds.
   """
-  servicelogger.log('bryan return pythontime.time() + 2208988800')
-  return pythontime.time() + 2208988800
+
   if time_query_times == []:
     raise TimeError("Error from time_gettime(): time has not been set yet!")
 
