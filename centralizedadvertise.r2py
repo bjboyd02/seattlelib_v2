@@ -8,7 +8,7 @@ Advertisements to a central server (similar to openDHT)
 
 
 """
-
+import servicelogger
 session = dy_import_module('session.r2py')
 # I'll use socket timeout to prevent hanging when it takes a long time...
 sockettimeout = dy_import_module('sockettimeout.r2py')
@@ -73,6 +73,7 @@ def centralizedadvertise_announce(key, value, ttlval):
   
   # send the data over a timeout socket using the session library, then
   # get a response from the server.
+  servicelogger.log('bryan: centralizedadvertize.r2py.centralizedadvertise_announce():openconnection')
   sockobj = sockettimeout.timeout_openconnection(gethostbyname(servername), serverport, 
     timeout=10)
   try:
@@ -137,6 +138,7 @@ def centralizedadvertise_lookup(key, maxvals=100):
 
   # send the data over a timeout socket using the session library, then
   # get a response from the server.
+  servicelogger.log('bryan: centralizedadvertize.r2py.centralizedadvertise_lookup():openconnection')
   sockobj = sockettimeout.timeout_openconnection(gethostbyname(servername), serverport, 
     timeout=10)
   try:

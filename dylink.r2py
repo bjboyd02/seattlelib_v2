@@ -23,7 +23,7 @@ Description:
   action on import, it is possible that dy_* never returns, as with
   import in Python.
 """
-
+#import servicelogger
 # Initialize globals once
 if callfunc == "initialize":
   # Copy our clean context for our child
@@ -46,14 +46,15 @@ if callfunc == "initialize":
   # binding attributes
   MODULE_BIND_CACHE = {}
 
-
+  #servicelogger.log('bryan: dylink.r2py:STOCK_API')
   # These are the functions in the "stock" repy API,
   STOCK_API = set(['createlock', 'createthread', 'createvirtualnamespace', 
       'dy_dispatch_module', 'dy_import_module', 'dy_import_module_symbols', 
       'exitall', 'gethostbyname', 'getlasterror', 'getmyip', 'getresources', 
       'getruntime', 'getthreadname', 'listenforconnection', 
       'listenformessage', 'listfiles', 'log', 'openconnection', 'openfile', 
-      'randombytes', 'removefile', 'sendmessage', 'sleep'])
+      'randombytes', 'removefile', 'sendmessage', 'sleep', 
+      "json_parse"]) # XXX json_parse added temporarily for #1369
 
 
   # This is the maximum number of bytes we will try to read in for a file.
