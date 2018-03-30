@@ -37,16 +37,32 @@ def time_updatetime(localport):
   return time_interface.time_updatetime(localport)
 
 
+def time_local_updatetime(localport):
+  return time_interface.time_local_updatetime(localport)
+
+
 def time_settime(currenttime):
   return time_interface.time_settime(currenttime)
+
+
+def time_local_settime(currenttime):
+  return time_interface.time_local_settime(currenttime)
 
 
 def time_gettime():
   return time_interface.time_gettime()
 
 
+def time_local_gettime():
+  return time_interface.time_local_gettime()
+
+
 def time_getunixtime():
   return time_interface.time_getunixtime()
+
+
+def time_local_getunixtime():
+  return time_interface.time_local_getunixtime()
 
 
 TimeError = time_interface.TimeError
